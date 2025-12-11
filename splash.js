@@ -34,13 +34,10 @@ class DraggableKey {
     `;
 
     // Position keys in a horizontal line under the door
-    // All keys centered horizontally, spaced vertically below door
-    const baseX = 0; // Relative positioning in flex container
-    const baseY = this.index * 50; // Space keys vertically
-    
+    // All keys aligned at same vertical level in flex container
     keyDiv.style.position = 'relative';
-    keyDiv.style.left = baseX + 'px';
-    keyDiv.style.top = baseY + 'px';
+    keyDiv.style.left = '0px';
+    keyDiv.style.top = '0px';
 
     // Drag events
     keyDiv.addEventListener('dragstart', (e) => this.onDragStart(e));
@@ -71,6 +68,11 @@ class DraggableKey {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('keyIndex', this.index);
     
+    // Store initial position before changing to fixed
+    const rect = this.element.getBoundingClientRect();
+    this.dragStartX = rect.left;
+    this.dragStartY = rect.top;
+    
     // Create a visual representation of the key for dragging
     const keyVisual = this.element.querySelector('.key-visual');
     const clone = keyVisual.cloneNode(true);
@@ -83,13 +85,10 @@ class DraggableKey {
     
     setTimeout(() => document.body.removeChild(clone), 0);
     
-    // Store initial position
-    const rect = this.element.getBoundingClientRect();
-    this.dragStartX = rect.left;
-    this.dragStartY = rect.top;
-    
-    // Move element to fixed positioning and make it follow cursor
+    // Move element to fixed positioning
     this.element.style.position = 'fixed';
+    this.element.style.left = this.dragStartX + 'px';
+    this.element.style.top = this.dragStartY + 'px';
     this.element.style.zIndex = '1000';
   }
 
@@ -155,7 +154,7 @@ class DraggableKey {
     // Reset to position in the horizontal line under the door
     this.element.style.position = 'relative';
     this.element.style.left = '0px';
-    this.element.style.top = (this.index * 50) + 'px';
+    this.element.style.top = '0px';
   }
 
   openDoor() {

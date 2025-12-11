@@ -213,9 +213,9 @@ nav a:hover::after {
 
 .typing-animation {
     color: rgb(142, 135, 247);
-    font-size: 52px;
+    font-size: 72px;
     margin-bottom: 40px;
-    min-height: 70px;
+    min-height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;

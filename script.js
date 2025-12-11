@@ -1,7 +1,7 @@
 window.onload = function(){
     let count = 0;
 
-    // Typing animation for home page
+    // Typing animation for home page (starts after welcome overlay fades)
     const typingElement = document.getElementById('typing-text');
     if (typingElement) {
         const name = "Anu Peddada";
@@ -15,8 +15,8 @@ window.onload = function(){
             }
         }
         
-        // Start typing animation after a short delay
-        setTimeout(typeName, 500);
+        // Start typing animation after welcome overlay fades (3s)
+        setTimeout(typeName, 3000);
     }
 
     // Like counter functionality

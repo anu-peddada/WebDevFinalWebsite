@@ -111,34 +111,7 @@
       box-shadow: 0 2px 6px rgba(142, 135, 247, 0.4);
     }
 
-    /* Door keyhole */
-    .door-keyhole {
-      position: absolute;
-      right: 18px;
-      bottom: 50px;
-      transform: none;
-      width: 14px;
-      height: 22px;
-    }
 
-    /* Keyhole circle (top) */
-    .keyhole-circle {
-      width: 14px;
-      height: 14px;
-      background-color: rgb(100, 85, 215);
-      border-radius: 50%;
-      margin: 0 auto 2px;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Keyhole slot (bottom) */
-    .keyhole-slot {
-      width: 4px;
-      height: 6px;
-      background-color: rgb(100, 85, 215);
-      margin: 0 auto;
-      border-radius: 0 0 2px 2px;
-    }
 
     /* Door open animation */
     .door.opening {
@@ -167,14 +140,14 @@
     .keys-container {
       position: fixed;
       width: 100%;
-      height: 100px;
+      height: 150px;
       bottom: auto;
       left: 0;
-      top: calc(50% + 200px);
+      top: calc(50% + 280px);
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: 50px;
+      gap: 60px;
       pointer-events: none;
     }
 
@@ -196,59 +169,58 @@
       filter: drop-shadow(0 8px 20px rgba(142, 135, 247, 0.5));
     }
 
-    /* Key visual - realistic vertical key shape */
+    /* Key visual - realistic key shape */
     .key-visual {
-      width: 35px;
-      height: 80px;
+      width: 60px;
+      height: 90px;
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
     }
 
-    /* Key head (the round part at top) */
+    /* Key bow (the round part at top) */
     .key-head {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       background: linear-gradient(135deg, rgb(142, 135, 247) 0%, rgb(100, 85, 215) 100%);
       border-radius: 50%;
-      box-shadow: 0 5px 15px rgba(142, 135, 247, 0.4);
+      box-shadow: 0 4px 12px rgba(142, 135, 247, 0.4);
       border: 2px solid rgba(255, 255, 255, 0.3);
-      z-index: 2;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
     /* Key shaft hanging down */
     .key-teeth {
-      width: 16px;
-      height: 56px;
-      background: linear-gradient(180deg, rgb(142, 135, 247) 0%, rgb(100, 85, 215) 100%);
-      border-radius: 0 0 4px 4px;
-      box-shadow: 0 5px 15px rgba(142, 135, 247, 0.4);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-top: none;
-      margin-top: -2px;
-      z-index: 1;
-      position: relative;
+      width: 32px;
+      height: 62px;
+      background: linear-gradient(90deg, rgb(142, 135, 247) 0%, rgb(100, 85, 215) 100%);
+      position: absolute;
+      left: 14px;
+      top: 18px;
+      border-radius: 2px;
+      box-shadow: 0 4px 12px rgba(142, 135, 247, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    /* Key teeth pattern on shaft */
+    /* Key teeth pattern - serrated edge */
     .key-teeth::after {
       content: '';
       position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 8px;
-      height: 10px;
+      bottom: 0;
+      right: -2px;
+      width: 4px;
+      height: 100%;
       background: repeating-linear-gradient(
-        0deg,
-        rgb(142, 135, 247) 0px,
-        rgb(142, 135, 247) 6px,
-        transparent 6px,
-        transparent 10px
+        180deg,
+        rgb(100, 85, 215) 0px,
+        rgb(100, 85, 215) 4px,
+        transparent 4px,
+        transparent 8px
       );
-      border-radius: 0 0 2px 2px;
-      box-shadow: 0 3px 8px rgba(142, 135, 247, 0.3);
+      border-radius: 2px;
     }
 
     /* Key label */
@@ -310,12 +282,7 @@
 
     <!-- Door and keys section -->
     <div class="door-container">
-      <div class="door" id="door">
-        <div class="door-keyhole">
-          <div class="keyhole-circle"></div>
-          <div class="keyhole-slot"></div>
-        </div>
-      </div>
+      <div class="door" id="door"></div>
       <div class="keys-container" id="keys-container">
         <!-- Keys will be inserted here by JavaScript -->
       </div>

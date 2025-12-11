@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Core Story - Anu's Portfolio</title>
+  <link href="styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  .content-section {
+    padding: 100px 40px 40px 40px;
+    background-color: rgb(240, 240, 240);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .content-section p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .content-section h2 {
+    color: rgb(142, 135, 247);
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(142, 135, 247);
+    padding-bottom: 10px;
+  }
+  
+  .content-section h2:first-of-type {
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<body>
+  <header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="resume.html">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact Me</a>
+    <div class="dropdown">
+      <a href="#" class="dropdown-toggle">More</a>
+      <div class="dropdown-menu">
+        <a href="about.html">About Me</a>
+        <a href="core-story.html">My Core Story</a>
+        <a href="statement-of-interest.html">CCE Industry Workshop + Action Statement</a>
+        <a href="generative-ai-statement.html">Generative AI Statement</a>
+        <a href="self-swot.html">Self-SWOT</a>
+        <a href="page-design.html">Page Design</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+ <main>
+    <section class="content-section">
+        <h1>My Core Story</h1>
+        
+        <h2>Showed Leadership</h2>
+        <p>In my Object-Oriented Programming class, I worked with two random classmates on a coding project.  Object-Oriented Programming is a class offered at my university which teaches students to write structure code around "objects" using coding language like C++ and C# to build robust software. We were tasked to develop a Linux terminal command tool. During the initial stages of our project, we decided to spilt up the work evenly and come back together to merge our changes. However we had inconsistent work due to lack of communicational about different logic, variable names, and documentation styles. I stepped up to lead by setting a schedule, creating shared coding standards, and organizing weekly checkpoints. I encouraged everyone to reach out if they ran into issues, so teammates with varying experience could contribute equally. We merged our code smoothly, delivered a polished project that met requirements, and built stronger collaboration skills as a team.</p>
+        
+        <h2>Took Initiative Without Being Told</h2>
+        <p>At a local nail salon, I noticed employees constantly interrupted by phone calls while providing service to their in-person clients. Their current booking systems was organized on a paper calendar. I realized this inefficiency could be solved with a digital scheduling system. Without being asked, I analyzed the problem, drew concepts from my high school computer science class, drew the framework of a user-friendly platform, and presented the idea to the salon owner. The salon adopted the system, reducing inefficient scheduling operations and improving customer experience. Not only did this experience encourage a small business to integrate technology into its daily operations, making their work processes more efficient, but I also learned how to strengthen my client-facing skills and adapt to their needs throughout the project’s development.</p>
+        
+        <h2>Worked With Data</h2>
+        <p>During my summer 2025 internship at The Federal Savings Bank, I was tasked with developing a Communication Tool for the Business Intelligence team. I was tasked with improving communication and reduce manual reporting effort with incoming client orders. I developed an MPR Communication Tool, leading the full software development lifecycle from design to developing the application on their loan organization software, Encompass. The orders were systematically organized by key word distinctions in their database on Snowflake. This process helped me learn how to approach a data-driven solution and the importance of the systematic structures so the application is sustainable for the client in the long-run.</p>
+        
+        <h2>Gave a Presentation (TEDx Talk)</h2>
+        <p>In 2023, I was selected to deliver a TEDx talk at my high school on the <em>AI Revolution</em>. My goal was to shift the narrative from fear of AI to help students and faculty understanding its potential. I structured the presentation around relatable examples of AI in daily life, used storytelling and interactive questions, and emphasized collaboration between humans and machines. I had to ensure my message was properly received by both technical and non-technical listeners. This resulted in my speech being well received by the audience. They stayed engaged throughout and left the auditorium with more confidence to integrate AI as a tool in their daily lives.</p>
+    </section>
+
+    <section class = "contact-me" id = "contact">
+        <div class="contact-container">
+            <h1>Contact Information</h1>  
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:a.peddadad@wustl.edu">a.peddadad@wustl.edu</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>847-990-0309</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/anu-peddada" target="_blank" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <h2>Get In Touch</h2>
+                <input type="text" placeholder="Enter your name" id="name" name="name">
+                <input type="email" placeholder="Enter your email" id="email" name="email">
+                <textarea placeholder="Enter your message" id="message" name="message" rows="4"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+ </main>   
+
+
+</body>
+
+
+</html>
+

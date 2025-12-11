@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Anu's Portfolio</title>
+  <link href="styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    .content-section {
+      padding: 100px 40px 40px 40px;
+      background-color: rgb(240, 240, 240);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .content-section h1 {
+      color: rgb(142, 135, 247);
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .content-section p {
+      color: #333;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .content-section h2 {
+      color: #333;
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .brand-statement {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact Me</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">More</a>
+        <div class="dropdown-menu">
+          <a href="about.html">About Me</a>
+          <a href="core-story.html">My Core Story</a>
+          <a href="statement-of-interest.html">CCE Industry Workshop + Action Statement</a>
+          <a href="generative-ai-statement.html">Generative AI Statement</a>
+          <a href="self-swot.html">Self-SWOT</a>
+          <a href="page-design.html">Page Design</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content-section">
+      <h1>About Me Page</h1>
+      
+      <h2 class="brand-statement">My Brand Statement</h2>
+      <p>I don't just generate ideas; I activate them. Being Business + Computer Science student, I thrive at the intersection of technology and strategy, turning complex technical problems into actionable solutions.</p>
+
+      <p><strong>Why am I different?</strong></p>
+      <p>I combine analytical complexity with my client-facing skills. I am equipped to be the main communication line between the business world and technical feasibility.</p>
+
+      <p><strong>My Strengths</strong></p>
+      <p>With CliftonStrengths like Activator, Woo (Winning Others Over), and Positivity, I am a person that values human connection and bridging gaps between people to leverage their strength and develop the best possible solution.</p>
+
+      <p>Adding my CliftonStrengths of Developer and Input, I become someone who approaches the problem with a detail-oriented mindset and a keen eye for details. Having the perfect combination, I transform ideas within the team into action, ensuring the client doesn't only see progress but results.</p>
+    </section>
+
+    <section class="contact-me" id="contact">
+      <div class="contact-container">
+        <h1>Contact Information</h1>  
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="mailto:a.peddadad@wustl.edu">a.peddadad@wustl.edu</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <p>847-990-0309</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-details">
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/anu-peddada" target="_blank" class="social-link">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <h2>Get In Touch</h2>
+          <input type="text" placeholder="Enter your name" id="name" name="name">
+          <input type="email" placeholder="Enter your email" id="email" name="email">
+          <textarea placeholder="Enter your message" id="message" name="message" rows="4"></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+    
+    <script src="script.js"></script>
+  </main>   
+
+</body>
+
+</html>

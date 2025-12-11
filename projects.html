@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Anu's Portfolio</title>
+  <link href="styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  .projects-content {
+    padding: 100px 40px 40px 40px;
+    background-color: rgb(240, 240, 240);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .project-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .project-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .pdf-preview {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .pdf-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .pdf-preview iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    pointer-events: none;
+    background: #f5f5f5;
+  }
+  
+  .pdf-preview object {
+    width: 100%;
+    height: 400px;
+    border: none;
+    pointer-events: none;
+  }
+  
+  .pdf-preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .pdf-preview:hover .pdf-preview-overlay {
+    opacity: 1;
+  }
+  
+  .pdf-view-button {
+    padding: 10px 20px;
+    background-color: rgb(142, 135, 247);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin-top: 12px;
+  }
+  
+  .pdf-view-button:hover {
+    background-color: rgb(89, 78, 248);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(142, 135, 247, 0.4);
+  }
+  
+  .pdf-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .project-item h3 {
+    color: rgb(142, 135, 247);
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .project-item p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin-top: 15px;
+  }
+  
+  .tech-icons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .tech-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+  }
+  
+  .tech-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  @media (min-width: 768px) {
+    .project-item {
+      flex-direction: row;
+      text-align: left;
+    }
+    
+    .project-item img {
+      max-width: 400px;
+      flex-shrink: 0;
+    }
+    
+    .pdf-container {
+      max-width: 400px;
+      flex-shrink: 0;
+    }
+    
+    .project-item h3,
+    .project-item p {
+      text-align: left;
+    }
+    
+    .tech-icons {
+      justify-content: flex-start;
+    }
+    
+    .pdf-view-button {
+      align-self: flex-start;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="resume.html">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact Me</a>
+    <div class="dropdown">
+      <a href="#" class="dropdown-toggle">More</a>
+      <div class="dropdown-menu">
+        <a href="about.html">About Me</a>
+        <a href="core-story.html">My Core Story</a>
+        <a href="statement-of-interest.html">CCE Industry Workshop + Action Statement</a>
+        <a href="generative-ai-statement.html">Generative AI Statement</a>
+        <a href="self-swot.html">Self-SWOT</a>
+        <a href="page-design.html">Page Design</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+ <main>
+    <section class="projects-content">
+        <h1>My Projects</h1>
+        
+        
+        <div class="project-item">
+            <a href="https://github.com/anthonyq7/continuity-gdg" target="_blank" style="text-decoration: none;">
+                <img src="cont.webp" alt="Google Developer Project" style="cursor: pointer;">
+            </a>
+            <div>
+                <h3>Google Developer Project</h3>
+                <div class="tech-icons">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon" title="JavaScript">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="tech-icon" title="HTML">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="tech-icon" title="CSS">
+                </div>
+                <p>This project was through the Google Developer Group chapter at WashU. Google Developer Group services to develop computer science projects for local St. Louis-based businesses to help them become technologically efficient.</p>
+                
+                <p style="margin-top: 15px;">My team was matched with Service Now, a film and media production company who needed a website to track onboarding, scheduling, payroll, and contracts for large-scale production crews. Our team was split into the frontend development, which focused on more of the visual website design with Figma, and backend development, which I was a part of, who focused on creating the AI chatbot feature and AI agent automation with internal employee interactions.</p>
+                
+                <p style="margin-top: 15px;">As this was a client-based solution, this required tons of follow-up and meetings to see if our progress was aligning with the client's vision of the product. This was a very educational process as we would run into hurdles when our communication between our team and the client was not clear.</p>
+                
+                <p style="margin-top: 15px;">I learned a lot about this project as I have never worked with APIs and AI agents before. It was a great experience to develop my technical skills in a practical application.</p>
+                <p style="margin-top: 15px; font-size: 14px; color: #666; font-style: italic;">Click the image above to download the zip file of the code at its current stage.</p>
+            </div>
+        </div>
+        
+        <div class="project-item">
+            <div class="pdf-container">
+                <a href="mgt 2010 pres.pdf" target="_blank" class="pdf-preview" title="Click to view full PDF">
+                    <object data="mgt 2010 pres.pdf#page=1&zoom=fit" type="application/pdf" width="100%" height="400px">
+                        <iframe src="mgt 2010 pres.pdf#page=1&zoom=fit" width="100%" height="400px" style="border: none;">
+                            <p>Your browser does not support PDFs. <a href="mgt 2010 pres.pdf" target="_blank">Download the PDF</a>.</p>
+                        </iframe>
+                    </object>
+                    <div class="pdf-preview-overlay">
+                        <span style="color: white; font-weight: 600; background: rgba(142, 135, 247, 0.9); padding: 8px 16px; border-radius: 6px;">Click to View PDF</span>
+                    </div>
+                </a>
+                <a href="mgt 2010 pres.pdf" target="_blank" class="pdf-view-button">View Full Presentation</a>
+            </div>
+            <div>
+                <h3>MGT2010 Client Project</h3>
+                <p>This project was for my Management Communications class at Washington University in St. Louis. We were tasked to give a client presentation about a communication strategy. Our client was the Gateway Youth Aeronautical Foundation and we were tasked with providing a communication enhancement strategy for their website and brand identity.</p>
+                
+                <p style="margin-top: 15px;">The Gateway Youth Aeronautical Foundation is a foundation that hopes to spark aviation interest through local events, programs, and networks amongst the St. Louis community.</p>
+                
+                <p style="margin-top: 15px;">This project encompasses revisions for the foundation's communication/brand standards, including messaging guidelines, tone, voice, and structure. Our team developed a website that reinforces the mission and converts website visitors to program participants through a data-driven approach.</p>
+                
+                <p style="margin-top: 15px;">The founder was persistent on decreasing the no-show rate to their program, and our team decided to focus on that issue and suggest integrating HubSpot into their data organization to create a constant line of communication between the foundation and program participants.</p>
+                
+                <p style="margin-top: 15px;">The value of this project for us is to help the founder decrease the manual labor he puts into this foundation to help him focus on what matters the most, which is sparking aviation interest, reaching as many individuals as possible, and launching aviation careers through this foundation.</p>
+                
+                <p style="margin-top: 15px;">I personally learned a lot from this project. I learned the importance of asking the "right" question while developing this project. I learned to ask the "right question", by reaching the client and speaking the language they understand, especially when the founder is unfamiliar with the service you recommended. It is essential to communicate on a level to match the client's experience with your solution.</p>
+                
+                <a href="https://drive.google.com/drive/folders/1sftXQuPN7e-t5dIL0LFmKgPVrgsf6RbY?usp=sharing" target="_blank" class="pdf-view-button" style="margin-top: 20px;">View Project Deliverables</a>
+            </div>
+        </div>
+    </section>
+
+    <section class = "contact-me" id = "contact">
+        <div class="contact-container">
+            <h1>Contact Information</h1>  
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:a.peddadad@wustl.edu">a.peddadad@wustl.edu</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>847-990-0309</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/anu-peddada" target="_blank" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <h2>Get In Touch</h2>
+                <input type="text" placeholder="Enter your name" id="name" name="name">
+                <input type="email" placeholder="Enter your email" id="email" name="email">
+                <textarea placeholder="Enter your message" id="message" name="message" rows="4"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+ </main>   
+
+
+</body>
+
+
+</html>
+

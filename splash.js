@@ -33,17 +33,11 @@ class DraggableKey {
       <div class="key-label">${this.data.label}</div>
     `;
 
-    // Position keys vertically - left and right of door
-    const doorContainer = document.querySelector('.door-container');
-    const isLeft = this.index < 2;
-    const positionIndex = isLeft ? this.index : this.index - 2;
-    
-    const baseX = isLeft ? window.innerWidth / 2 - 150 : window.innerWidth / 2 + 150;
-    const baseY = window.innerHeight / 2 - 80 + (positionIndex * 80);
-    
-    keyDiv.style.left = baseX + 'px';
-    keyDiv.style.top = baseY + 'px';
-    keyDiv.style.transform = 'translate(-50%, -50%)';
+    // Position keys horizontally below door
+    keyDiv.style.position = 'relative';
+    keyDiv.style.left = 'auto';
+    keyDiv.style.top = 'auto';
+    keyDiv.style.transform = 'none';
 
     // Drag events
     keyDiv.addEventListener('dragstart', (e) => this.onDragStart(e));
@@ -74,25 +68,22 @@ class DraggableKey {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('keyIndex', this.index);
     
-    // Get the key element bounds for positioning during drag
+    // Create a visual representation of the key for dragging
+    const keyVisual = this.element.querySelector('.key-visual');
+    const clone = keyVisual.cloneNode(true);
+    clone.style.position = 'absolute';
+    clone.style.top = '-9999px';
+    clone.style.width = '80px';
+    clone.style.height = '35px';
+    document.body.appendChild(clone);
+    e.dataTransfer.setDragImage(clone, 40, 17);
+    
+    setTimeout(() => document.body.removeChild(clone), 0);
+    
+    // Store initial position for touch drag
     const rect = this.element.getBoundingClientRect();
     this.dragStartX = rect.left;
     this.dragStartY = rect.top;
-    
-    // Custom drag image
-    const dragImage = document.createElement('div');
-    dragImage.style.width = '70px';
-    dragImage.style.height = '30px';
-    dragImage.style.background = 'linear-gradient(135deg, rgb(142, 135, 247) 0%, rgb(100, 85, 215) 100%)';
-    dragImage.style.borderRadius = '50% 3px 3px 50%';
-    dragImage.style.position = 'absolute';
-    dragImage.style.top = '-9999px';
-    document.body.appendChild(dragImage);
-    e.dataTransfer.setDragImage(dragImage, 35, 15);
-    
-    // Make element follow cursor during drag
-    this.element.style.position = 'fixed';
-    this.element.style.zIndex = '1000';
   }
 
   onDragEnd(e) {
@@ -154,16 +145,10 @@ class DraggableKey {
   }
 
   resetPosition() {
-    const isLeft = this.index < 2;
-    const positionIndex = isLeft ? this.index : this.index - 2;
-    
-    const baseX = isLeft ? window.innerWidth / 2 - 150 : window.innerWidth / 2 + 150;
-    const baseY = window.innerHeight / 2 - 80 + (positionIndex * 80);
-    
-    this.element.style.position = 'fixed';
-    this.element.style.left = baseX + 'px';
-    this.element.style.top = baseY + 'px';
-    this.element.style.transform = 'translate(-50%, -50%)';
+    this.element.style.position = 'relative';
+    this.element.style.left = 'auto';
+    this.element.style.top = 'auto';
+    this.element.style.transform = 'none';
   }
 
   openDoor() {

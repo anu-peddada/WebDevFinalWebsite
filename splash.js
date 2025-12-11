@@ -33,11 +33,17 @@ class DraggableKey {
       <div class="key-label">${this.data.label}</div>
     `;
 
-    // Position keys horizontally below door
-    keyDiv.style.position = 'relative';
-    keyDiv.style.left = 'auto';
-    keyDiv.style.top = 'auto';
-    keyDiv.style.transform = 'none';
+    // Position keys vertically - left and right of door
+    const doorContainer = document.querySelector('.door-container');
+    const isLeft = this.index < 2;
+    const positionIndex = isLeft ? this.index : this.index - 2;
+    
+    const baseX = isLeft ? window.innerWidth / 2 - 150 : window.innerWidth / 2 + 150;
+    const baseY = window.innerHeight / 2 - 80 + (positionIndex * 80);
+    
+    keyDiv.style.left = baseX + 'px';
+    keyDiv.style.top = baseY + 'px';
+    keyDiv.style.transform = 'translate(-50%, -50%)';
 
     // Drag events
     keyDiv.addEventListener('dragstart', (e) => this.onDragStart(e));
@@ -148,10 +154,16 @@ class DraggableKey {
   }
 
   resetPosition() {
-    this.element.style.position = 'relative';
-    this.element.style.left = 'auto';
-    this.element.style.top = 'auto';
-    this.element.style.transform = 'none';
+    const isLeft = this.index < 2;
+    const positionIndex = isLeft ? this.index : this.index - 2;
+    
+    const baseX = isLeft ? window.innerWidth / 2 - 150 : window.innerWidth / 2 + 150;
+    const baseY = window.innerHeight / 2 - 80 + (positionIndex * 80);
+    
+    this.element.style.position = 'fixed';
+    this.element.style.left = baseX + 'px';
+    this.element.style.top = baseY + 'px';
+    this.element.style.transform = 'translate(-50%, -50%)';
   }
 
   openDoor() {

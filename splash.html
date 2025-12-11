@@ -41,7 +41,7 @@
       color: rgb(142, 135, 247);
       font-weight: 700;
       position: fixed;
-      top: 60px;
+      top: 40px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -115,16 +115,16 @@
     .door-keyhole {
       position: absolute;
       left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 24px;
-      height: 36px;
+      bottom: 60px;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 22px;
     }
 
     /* Keyhole circle (top) */
     .keyhole-circle {
-      width: 24px;
-      height: 24px;
+      width: 14px;
+      height: 14px;
       background-color: rgb(100, 85, 215);
       border-radius: 50%;
       margin: 0 auto 2px;
@@ -133,11 +133,11 @@
 
     /* Keyhole slot (bottom) */
     .keyhole-slot {
-      width: 6px;
-      height: 10px;
+      width: 4px;
+      height: 6px;
       background-color: rgb(100, 85, 215);
       margin: 0 auto;
-      border-radius: 0 0 3px 3px;
+      border-radius: 0 0 2px 2px;
     }
 
     /* Door open animation */
@@ -163,17 +163,23 @@
       display: none;
     }
 
-    /* Keys container - horizontal line below door */
+    /* Keys container - vertical hanging layout */
     .keys-container {
-      position: absolute;
+      position: fixed;
       width: 100%;
-      height: 120px;
-      bottom: -80px;
+      height: 100%;
+      bottom: auto;
       left: 0;
+      top: 0;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      gap: 30px;
+      align-items: center;
+      gap: 40px;
+      pointer-events: none;
+    }
+
+    .keys-container > .key {
+      pointer-events: all;
     }
 
     /* Individual key */
@@ -181,7 +187,7 @@
       cursor: grab;
       user-select: none;
       transition: all 0.3s ease;
-      position: relative;
+      position: fixed;
     }
 
     .key.dragging {
@@ -190,65 +196,63 @@
       filter: drop-shadow(0 8px 20px rgba(142, 135, 247, 0.4));
     }
 
-    /* Key visual - actual key shape */
+    /* Key visual - actual key shape hanging vertically */
     .key-visual {
-      width: 70px;
-      height: 30px;
+      width: 30px;
+      height: 70px;
       position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
     }
 
-    /* Key head (the round part) */
+    /* Key head (the round part at top) */
     .key-head {
       width: 30px;
       height: 30px;
       background: linear-gradient(135deg, rgb(142, 135, 247) 0%, rgb(100, 85, 215) 100%);
       border-radius: 50%;
-      position: absolute;
-      left: 0;
       box-shadow: 0 4px 12px rgba(142, 135, 247, 0.35);
       border: 2px solid rgba(255, 255, 255, 0.3);
     }
 
-    /* Key shaft and teeth */
+    /* Key shaft and teeth hanging down */
     .key-teeth {
-      position: absolute;
-      left: 20px;
-      width: 50px;
-      height: 14px;
-      background: linear-gradient(135deg, rgb(142, 135, 247) 0%, rgb(100, 85, 215) 100%);
-      border-radius: 0 3px 3px 0;
+      width: 14px;
+      height: 50px;
+      background: linear-gradient(180deg, rgb(142, 135, 247) 0%, rgb(100, 85, 215) 100%);
+      border-radius: 3px 3px 0 0;
       box-shadow: 0 4px 12px rgba(142, 135, 247, 0.35);
       border: 2px solid rgba(255, 255, 255, 0.3);
-      border-left: none;
-      display: flex;
-      align-items: flex-end;
+      border-top: none;
+      margin-top: -2px;
+      position: relative;
     }
 
     /* Key teeth pattern on shaft */
-    .key-teeth::before {
+    .key-teeth::after {
       content: '';
       position: absolute;
       bottom: -8px;
-      right: 0;
-      width: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
       height: 8px;
       background: repeating-linear-gradient(
-        90deg,
+        0deg,
         rgb(142, 135, 247) 0px,
         rgb(142, 135, 247) 6px,
         transparent 6px,
         transparent 10px
       );
-      border-radius: 0 0 2px 0;
+      border-radius: 0 0 2px 2px;
       box-shadow: 0 2px 4px rgba(142, 135, 247, 0.3);
     }
 
     /* Key label */
     .key-label {
       position: absolute;
-      bottom: -45px;
+      bottom: -50px;
       left: 50%;
       transform: translateX(-50%);
       width: 85px;
@@ -258,6 +262,12 @@
       font-weight: 500;
       white-space: normal;
       line-height: 1.2;
+    }
+
+    /* Key hover animation */
+    .key:hover .key-visual {
+      transform: scale(1.3);
+      filter: drop-shadow(0 6px 16px rgba(142, 135, 247, 0.5));
     }
 
     /* Key drop animation */
@@ -279,11 +289,11 @@
     /* Instructions text */
     .instructions {
       position: fixed;
-      bottom: 40px;
+      top: 130px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
-      font-size: 15px;
+      font-size: 14px;
       color: #666;
       font-weight: 300;
       z-index: 10;

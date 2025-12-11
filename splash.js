@@ -33,11 +33,16 @@ class DraggableKey {
       <div class="key-label">${this.data.label}</div>
     `;
 
-    // Position keys horizontally below door
-    keyDiv.style.position = 'relative';
-    keyDiv.style.left = 'auto';
-    keyDiv.style.top = 'auto';
-    keyDiv.style.transform = 'none';
+    // Position keys vertically - 2 on left, 2 on right of door
+    const isLeft = this.index < 2;
+    const positionIndex = isLeft ? this.index : this.index - 2;
+    
+    const baseX = isLeft ? window.innerWidth / 2 - 120 : window.innerWidth / 2 + 120;
+    const baseY = window.innerHeight / 2 - 60 + (positionIndex * 100);
+    
+    keyDiv.style.left = baseX + 'px';
+    keyDiv.style.top = baseY + 'px';
+    keyDiv.style.transform = 'translate(-50%, -50%)';
 
     // Drag events
     keyDiv.addEventListener('dragstart', (e) => this.onDragStart(e));
@@ -73,17 +78,21 @@ class DraggableKey {
     const clone = keyVisual.cloneNode(true);
     clone.style.position = 'absolute';
     clone.style.top = '-9999px';
-    clone.style.width = '80px';
-    clone.style.height = '35px';
+    clone.style.width = '35px';
+    clone.style.height = '80px';
     document.body.appendChild(clone);
-    e.dataTransfer.setDragImage(clone, 40, 17);
+    e.dataTransfer.setDragImage(clone, 17, 40);
     
     setTimeout(() => document.body.removeChild(clone), 0);
     
-    // Store initial position for touch drag
+    // Store initial position
     const rect = this.element.getBoundingClientRect();
     this.dragStartX = rect.left;
     this.dragStartY = rect.top;
+    
+    // Move element to fixed positioning and make it follow cursor
+    this.element.style.position = 'fixed';
+    this.element.style.zIndex = '1000';
   }
 
   onDragEnd(e) {
@@ -145,10 +154,16 @@ class DraggableKey {
   }
 
   resetPosition() {
-    this.element.style.position = 'relative';
-    this.element.style.left = 'auto';
-    this.element.style.top = 'auto';
-    this.element.style.transform = 'none';
+    const isLeft = this.index < 2;
+    const positionIndex = isLeft ? this.index : this.index - 2;
+    
+    const baseX = isLeft ? window.innerWidth / 2 - 120 : window.innerWidth / 2 + 120;
+    const baseY = window.innerHeight / 2 - 60 + (positionIndex * 100);
+    
+    this.element.style.position = 'fixed';
+    this.element.style.left = baseX + 'px';
+    this.element.style.top = baseY + 'px';
+    this.element.style.transform = 'translate(-50%, -50%)';
   }
 
   openDoor() {

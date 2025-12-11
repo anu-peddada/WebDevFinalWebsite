@@ -1,0 +1,34 @@
+[
+  {
+    "name": "portfolio-website",
+    "html_url": "https://github.com/anu-peddada/portfolio-website",
+    "description": "Personal portfolio built with HTML, CSS, and JavaScript.",
+    "language": "HTML",
+    "stargazers_count": 5,
+    "homepage": ""
+  },
+  {
+    "name": "data-visualization",
+    "html_url": "https://github.com/anu-peddada/data-visualization",
+    "description": "A small project using D3 to visualize datasets.",
+    "language": "JavaScript",
+    "stargazers_count": 2,
+    "homepage": ""
+  },
+  {
+    "name": "core-story-site",
+    "html_url": "https://github.com/anu-peddada/core-story-site",
+    "description": "Static site for my core story assignment.",
+    "language": "CSS",
+    "stargazers_count": 1,
+    "homepage": ""
+  },
+  {
+    "name": "class-project",
+    "html_url": "https://github.com/anu-peddada/class-project",
+    "description": "Group project demonstrating API usage and web interactivity.",
+    "language": "Python",
+    "stargazers_count": 0,
+    "homepage": ""
+  }
+]

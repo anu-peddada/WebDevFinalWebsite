@@ -33,15 +33,11 @@ class DraggableKey {
       <div class="key-label">${this.data.label}</div>
     `;
 
-    // Position keys in a circle around the door
-    const angle = (this.index / this.total) * Math.PI * 2;
-    const radius = 160;
-    const x = Math.cos(angle) * radius;
-    const y = Math.sin(angle) * radius;
-
-    keyDiv.style.left = 'calc(50% + ' + x + 'px)';
-    keyDiv.style.top = 'calc(50% + ' + y + 'px)';
-    keyDiv.style.transform = 'translate(-50%, -50%)';
+    // Position keys horizontally below door
+    keyDiv.style.position = 'relative';
+    keyDiv.style.left = 'auto';
+    keyDiv.style.top = 'auto';
+    keyDiv.style.transform = 'none';
 
     // Drag events
     keyDiv.addEventListener('dragstart', (e) => this.onDragStart(e));
@@ -146,15 +142,10 @@ class DraggableKey {
   }
 
   resetPosition() {
-    this.element.style.position = 'absolute';
-    const angle = (this.index / this.total) * Math.PI * 2;
-    const radius = 160;
-    const x = Math.cos(angle) * radius;
-    const y = Math.sin(angle) * radius;
-    
-    this.element.style.left = 'calc(50% + ' + x + 'px)';
-    this.element.style.top = 'calc(50% + ' + y + 'px)';
-    this.element.style.transform = 'translate(-50%, -50%)';
+    this.element.style.position = 'relative';
+    this.element.style.left = 'auto';
+    this.element.style.top = 'auto';
+    this.element.style.transform = 'none';
   }
 
   openDoor() {

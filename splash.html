@@ -114,9 +114,9 @@
     /* Door keyhole */
     .door-keyhole {
       position: absolute;
-      left: 50%;
-      bottom: 60px;
-      transform: translateX(-50%);
+      right: 18px;
+      bottom: 50px;
+      transform: none;
       width: 14px;
       height: 22px;
     }
@@ -163,18 +163,18 @@
       display: none;
     }
 
-    /* Keys container - vertical hanging layout */
+    /* Keys container - vertical line under door */
     .keys-container {
       position: fixed;
       width: 100%;
-      height: 100%;
+      height: 100px;
       bottom: auto;
       left: 0;
-      top: 0;
+      top: calc(50% + 200px);
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 60px;
+      align-items: flex-start;
+      gap: 50px;
       pointer-events: none;
     }
 
@@ -187,7 +187,7 @@
       cursor: grab;
       user-select: none;
       transition: all 0.3s ease;
-      position: fixed;
+      position: relative;
     }
 
     .key.dragging {

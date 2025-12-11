@@ -68,16 +68,25 @@ class DraggableKey {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('keyIndex', this.index);
     
+    // Get the key element bounds for positioning during drag
+    const rect = this.element.getBoundingClientRect();
+    this.dragStartX = rect.left;
+    this.dragStartY = rect.top;
+    
     // Custom drag image
     const dragImage = document.createElement('div');
-    dragImage.style.width = '60px';
-    dragImage.style.height = '85px';
+    dragImage.style.width = '70px';
+    dragImage.style.height = '30px';
     dragImage.style.background = 'linear-gradient(135deg, rgb(142, 135, 247) 0%, rgb(100, 85, 215) 100%)';
-    dragImage.style.borderRadius = '8px';
+    dragImage.style.borderRadius = '50% 3px 3px 50%';
     dragImage.style.position = 'absolute';
     dragImage.style.top = '-9999px';
     document.body.appendChild(dragImage);
-    e.dataTransfer.setDragImage(dragImage, 30, 42);
+    e.dataTransfer.setDragImage(dragImage, 35, 15);
+    
+    // Make element follow cursor during drag
+    this.element.style.position = 'fixed';
+    this.element.style.zIndex = '1000';
   }
 
   onDragEnd(e) {
@@ -102,13 +111,10 @@ class DraggableKey {
     this.offsetX = currentX - this.dragStartX;
     this.offsetY = currentY - this.dragStartY;
     
-    const rect = this.element.getBoundingClientRect();
-    const newX = rect.left + this.offsetX;
-    const newY = rect.top + this.offsetY;
-    
     this.element.style.position = 'fixed';
-    this.element.style.left = newX + 'px';
-    this.element.style.top = newY + 'px';
+    this.element.style.left = (this.dragStartX + this.offsetX) + 'px';
+    this.element.style.top = (this.dragStartY + this.offsetY) + 'px';
+    this.element.style.transform = 'none';
   }
 
   onTouchEnd(e) {

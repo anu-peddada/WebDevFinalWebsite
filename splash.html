@@ -40,18 +40,24 @@
       font-size: 32px;
       color: rgb(142, 135, 247);
       font-weight: 700;
-      margin-bottom: 80px;
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: center;
       min-height: 40px;
       letter-spacing: 1px;
+      z-index: 10;
     }
 
     /* Door container */
     .door-container {
-      position: relative;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 300px;
       height: 500px;
-      margin-bottom: 60px;
     }
 
     /* Door frame */
@@ -60,17 +66,49 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 180px;
-      height: 280px;
-      background-color: white;
-      border: 3px solid rgb(142, 135, 247);
-      border-radius: 8px;
-      box-shadow: 0 6px 30px rgba(142, 135, 247, 0.2);
+      width: 200px;
+      height: 340px;
+      background: linear-gradient(90deg, #f5f5f5 0%, white 50%, #e8e8e8 100%);
+      border: 4px solid rgb(142, 135, 247);
+      border-radius: 12px;
+      box-shadow: 
+        0 10px 40px rgba(142, 135, 247, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       perspective: 1000px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Door frame border details */
+    .door::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border: 1px solid rgba(142, 135, 247, 0.2);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    /* Door handle */
+    .door::after {
+      content: '';
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      background-color: rgb(200, 180, 220);
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(142, 135, 247, 0.4);
     }
 
     /* Door keyhole */
@@ -240,12 +278,15 @@
 
     /* Instructions text */
     .instructions {
-      position: absolute;
+      position: fixed;
       bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: center;
       font-size: 15px;
       color: #666;
       font-weight: 300;
+      z-index: 10;
     }
   </style>
 </head>

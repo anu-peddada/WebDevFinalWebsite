@@ -1,8 +1,5 @@
 const keys = [
-  { label: 'Introduction', href: 'index.html', color: 'rgb(142, 135, 247)' },
-  { label: 'See My Journey', href: 'core-story.html', color: 'rgb(120, 110, 230)' },
-  { label: 'Discover My Work', href: 'projects.html', color: 'rgb(100, 85, 215)' },
-  { label: 'Connect With Me', href: 'contact.html', color: 'rgb(89, 78, 248)' }
+  { label: "Anu's Portfolio", href: 'index.html', color: 'rgb(142, 135, 247)' }
 ];
 
 class DraggableKey {
